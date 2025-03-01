@@ -1,0 +1,127 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f3ffe6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #fff9e6;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+h1 {
+    color: #7cbb00;
+}
+
+.field {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 15px;
+    margin: 5px;
+    font-size: 1em;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ffcc66;
+}
+
+.sky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.cloud, .butterfly {
+    position: absolute;
+    font-size: 3em;
+    opacity: 0.8;
+}
+
+.cloud {
+    top: 20%;
+    left: -10%;
+    animation: floatCloud 20s linear infinite;
+}
+
+.butterfly {
+    top: 70%;
+    left: -10%;
+    animation: flyButterfly 10s linear infinite;
+}
+
+@keyframes floatCloud {
+    from { left: -10%; }
+    to { left: 110%; }
+}
+
+@keyframes flyButterfly {
+    0% { left: -10%; top: 70%; }
+    50% { top: 50%; }
+    100% { left: 110%; top: 70%; }
+}
+
+#plantImage {
+    width: 150px;
+    height: 150px;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+#plantImage.visible {
+    opacity: 1;
+}
+
+.water-animation {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    transform: translate(-50%, -50%);
+    animation: watering 1.5s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes watering {
+    0% { opacity: 0; transform: translate(-50%, -70%); }
+    50% { opacity: 1; transform: translate(-50%, -50%); }
+    100% { opacity: 0; transform: translate(-50%, -30%); }
+}
+
+.harvest-message {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fffbcc;
+    color: #ff6699;
+    font-size: 1.5em;
+    padding: 15px 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    animation: fadeInOut 3s ease;
+    z-index: 1000;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translate(-50%, -20%); }
+    20%, 80% { opacity: 1; transform: translate(-50%, 0); }
+    100% { opacity: 0; transform: translate(-50%, -20%); }
+}
